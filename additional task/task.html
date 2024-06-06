@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruitables</title>
+    <style>
+      /* Navbar */
+      .header {
+        background-color: #8bc34a;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        border-radius: 20px 25px 45px 45px;
+      }
+      .header div {
+        display: flex;
+        align-items: center;
+      }
+      .header-right a {
+        color: white;
+        margin-left: 2%;
+        text-decoration: none;
+        margin-right: 2%;
+      }
+
+      .nav {
+        background-color: #ffffff;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+      }
+      .nav a {
+        color: #666666;
+        text-decoration: none;
+        padding: 5px 10px;
+      }
+      .cart-icon {
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      /* Hero */
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px;
+        background-color: #f9f9f9;
+      }
+      .text-content {
+        max-width: 50%;
+      }
+      .text-content h1 {
+        color: #8bc34a;
+        font-size: 48px;
+        margin: 0;
+      }
+      .text-content p {
+        color: #ff9800;
+        font-size: 24px;
+        margin: 10px 0;
+      }
+      .search-box {
+        margin-top: 20px;
+      }
+      .search-box input[type="text"] {
+        padding: 10px;
+        width: 250px;
+        border: 2px solid #ffeb3b;
+        border-radius: 25px;
+        border: 2px solid #ff9800;
+      }
+      .search-box input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #8bc34a;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        border: 2px solid orange;
+      }
+      .image-content {
+        max-width: 45%;
+        position: relative;
+      }
+      .image-content img {
+        width: 100%;
+        border-radius: 15px;
+      }
+      .image-content .overlay {
+        position: absolute;
+        top: 40%;
+        left: 40%;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+
+      /* 4 Cards */
+      .benefits-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 80%;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 0 auto;
+      }
+      .benefit {
+        text-align: center;
+        padding: 20px;
+      }
+      .benefit img {
+        width: 60px;
+        height: 60px;
+      }
+      .benefit h3 {
+        color: #333333;
+        font-size: 18px;
+        margin: 10px 0;
+      }
+      .benefit p {
+        color: #777777;
+        font-size: 14px;
+        margin: 0;
+      }
+
+      /* Products */
+      .products {
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+      .products h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+      .product-filters {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .product-filters button {
+        background-color: #f1f1f1;
+        color: #555;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+      }
+      .product-item {
+        background-color: #ffffff;
+        border: 2px solid orange;
+        border-radius: 3%;
+        width: 40vh;
+        text-align: center;
+      }
+      .product-item img {
+        width: 100%;
+        border-radius: 3%;
+      }
+      .product-details {
+        padding: 20px;
+      }
+      .product-tag {
+        background-color: orange;
+        color: #333;
+        padding: 2px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      .price-add {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+      }
+      .price-add p {
+        font-size: 16px;
+        color: #333;
+      }
+      .price-add button {
+        background-color: orange;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 1200px) {
+        .container {
+          flex-direction: column;
+          padding: 20px;
+        }
+        .text-content {
+          max-width: 100%;
+          text-align: center;
+        }
+        .image-content {
+          max-width: 100%;
+          margin-top: 20px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav {
+          flex-direction: column;
+          padding: 10px;
+        }
+        .benefits-container {
+          flex-direction: column;
+          width: 100%;
+        }
+        .benefit {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        .product-item {
+          width: 80%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="header">
+      <div>
+        <p>123 Street, New York</p>
+        <p>Email@Example.com</p>
+      </div>
+      <div class="header-right">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Sales and Refunds</a>
+      </div>
+    </header>
+    <nav class="nav">
+      <h1 style="color: #8bc34a">Fruitables</h1>
+      <a href="#" class="active">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Shop Detail</a>
+      <a href="#">Pages</a>
+      <a href="#">Contact</a>
+      <div class="cart-icon">
+        <a href="#"></a>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="container">
+      <div class="text-content">
+        <p>100% Organic Foods</p>
+        <h1>
+          Organic Veggies & <br />
+          Fruits Foods
+        </h1>
+        <div class="search-box">
+          <input type="text" placeholder="Search" />
+          <input type="submit" value="Submit Now" />
+        </div>
+      </div>
+      <div class="image-content">
+        <img src="./hero-img-1.png" alt="Organic Fruits and Vegetables" />
+        <div class="overlay">Fruites</div>
+      </div>
+    </div>
+
+    <!-- 4 Cards -->
+    <div class="benefits-container">
+      <div class="benefit">
+        <img src="" alt="Free Shipping" />
+        <h3>Free Shipping</h3>
+        <p>Free on order over $300</p>
+      </div>
+      <div class="benefit">
+        <img src="" alt="Security Payment" />
+        <h3>Security Payment</h3>
+        <p>100% security payment</p>
+      </div>
+      <div class="benefit">
+        <img src="" alt="30 Day Return" />
+        <h3>30 Day Return</h3>
+        <p>30 day money guarantee</p>
+      </div>
+      <div class="benefit">
+        <img src="" alt="24/7 Support" />
+        <h3>24/7 Support</h3>
+        <p>Support every time fast</p>
+      </div>
+    </div>
+
+    <!-- Products -->
+    <section class="products">
+      <h2>Our Organic Products</h2>
+      <div class="product-filters">
+        <button class="active">All Products</button>
+        <button>Vegetables</button>
+        <button>Fruits</button>
+        <button>Bread</button>
+        <button>Meat</button>
+      </div>
+      <div class="product-list">
+        <div class="product-item">
+          <img src="./best-product-5.jpg" alt="Grapes" height="150px" />
+          <div class="product-details">
+            <span class="product-tag">Fruits</span>
+            <h3>Grapes</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="price-add">
+              <p>$4.99 / kg</p>
+              <button>Add to cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="./best-product-5.jpg" alt="Grapes" height="150px" />
+          <div class="product-details">
+            <span class="product-tag">Fruits</span>
+            <h3>Grapes</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="price-add">
+              <p>$4.99 / kg</p>
+              <button>Add to cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="./best-product-5.jpg" alt="Grapes" height="150px" />
+          <div class="product-details">
+            <span class="product-tag">Fruits</span>
+            <h3>Raspberries</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="price-add">
+              <p>$4.99 / kg</p>
+              <button>Add to cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="./best-product-5.jpg" alt="Grapes" height="150px" />
+          <div class="product-details">
+            <span class="product-tag">Fruits</span>
+            <h3>Raspberries</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="price-add">
+              <p>$4.99 / kg</p>
+              <button>Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
